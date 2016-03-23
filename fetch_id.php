@@ -70,6 +70,3 @@ function getData($data)
 
 $uid = getData($result);  // User ID
 
-die(json_encode($userData));
-       
-
