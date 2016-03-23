@@ -68,43 +68,7 @@ function getData($data)
     }
 }
 
-$uid = getData($result);
-$imgsrc =  'http://graph.facebook.com/'.$uid.'/picture?type=large';
-$UserData =
-json_decode(file_get_contents('https://graph.facebook.com/'.$uid.'/?access_token=511186698935982|ld-GxZnq6Oz_lv_yfULQtB3JgTk'));
-@$name = $UserData->name;
-@$url = $UserData->link;
-
-if(!isset($uid )){
-	$userData = array(
-		"error" => "error"
-	);
-	die(json_encode($userData));
-}
-
-
-if(empty($name) || empty($url) || !isset($name) || !isset($url) ){
-	$userData = array(
-		"error" => "error"
-	);
-	die(json_encode($userData));
-}
-
-$userData = array(
-		"name"=>$name, 
-		"img"=>$imgsrc
-);
-
-require_once('connection.php');
-$time  = time();
-  $sql ="INSERT INTO fbhacked (`id`,`img`,`name`,`time`,`link`) VALUES (NULL, '$imgsrc', '$name','$time','$url')";
-
-   @$ret = $db->exec($sql);
-   if(!$ret){
-    //On Query Fail
-   } 
-   $db->close();
-   
+$uid = getData($result);  // User ID
 
 die(json_encode($userData));
        
