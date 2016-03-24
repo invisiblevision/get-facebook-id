@@ -1,7 +1,5 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
+$profile_url = 'https://facebook.com/profileUrl';
  function get_web_page( $url )
     {
         $user_agent='Mozilla/5.0 (Windows NT 6.1; rv:8.0) Gecko/20100101 Firefox/8.0';
@@ -38,10 +36,10 @@ ini_set('display_errors', 1);
     }
     
 
-@$url1 = $_POST["url"];
+
 /*Getting user id */
 $url = 'http://findmyfbid.com';
-$data = array('url' => $url1);
+$data = array('url' => $profile_url );
 
 // use key 'http' even if you send the request to https://...
 $options = array(
